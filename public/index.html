@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ean stack demo</title>
+
+</head>
+<body ng-app="app" ng-controller="HiyaController">
+
+    <main>{{hiya}}</main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script>
+angular.module('app', []).controller('HiyaController', ['$http', '$scope', function($http, $scope){
+
+    $http.get('api/hiya').then(function(result){
+        $scope.hiya = result.data.hiya;
+    })
+
+}]);
+</script>
+</body>
+</html>
